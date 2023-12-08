@@ -1,3 +1,92 @@
-#heading {
-  color: red;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.nav-item > ul {
+  display: flex;
+  list-style-type: none;
+}
+.nav-item > ul > li {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  padding-left: 15px;
+}
+img{
+border-radius: 10px;
+}
+
+.res-cards {
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+}
+.res-cards:hover {
+  border: solid 1px black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.res-card-logo {
+  width: 100%;
+}
+
+/* .body{
+  padding: 10px;
+} */
+.search {
+  padding: 10px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.topList{
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  width:150px;
+  height:40px
+}
+
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card{
+  width: 200px;
+  height: 400px;
+  background-color: #f0f0f0;
+  margin: 5px;
+}
+.login-btn{
+  margin:5px 10px 0 0;
+  width: 80px;
+  height:50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.topResList{
+  display: flex;
+}
+
+.search{
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.search-bar{
+  height:30px;
+  border-radius: 10px;
 }
