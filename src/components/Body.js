@@ -2,6 +2,7 @@ import Cards from "./Cards";
 // import listOfRestData from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRest, setListOfRest] = useState([]);
@@ -14,14 +15,15 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.045943287905327&lng=77.7224950119853&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.045943287905327&lng=77.7224950119853&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     setListOfRest(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      // data.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
     setFilteredDataNew(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -49,8 +51,10 @@ const Body = () => {
             // }
             onClick={() => {
               const filteredSearchValue = listOfRest.filter(
-                (filteredSerachData) => filteredSerachData.info.name.toLowerCase().includes(serchValue.toLowerCase())
-                
+                (filteredSerachData) =>
+                  filteredSerachData.info.name
+                    .toLowerCase()
+                    .includes(serchValue.toLowerCase())
               );
               setFilteredDataNew(filteredSearchValue);
             }}
@@ -72,7 +76,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredDataNew.map((resturant) => (
-          <Cards key={resturant.info.id} resData={resturant} />
+          <Link key={resturant.info.id} to={"resturants/" + resturant.info.id}>
+            <Cards resData={resturant} />
+          </Link>
         ))}
       </div>
     </div>
